@@ -50,6 +50,18 @@ public class StudentController {
     public List<Student> getAllStudents(){
         return studentService.getAllStudents();
     }
+
+    @GetMapping("/developer")
+    public Developer getDeveloper(){
+        return new  Developer("java developer",3);
+    }
+
+    /**
+     * creating the record 
+     * record properties can't be changed after the created because they were final
+     */
+    public record Developer(String developerType,double yearOfExperience) {
+    }
     
 
     

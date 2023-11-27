@@ -8,15 +8,18 @@ import com.thapak.demopostgresql.entities.Student;
 import com.thapak.demopostgresql.repositories.StudentRepository;
 import com.thapak.demopostgresql.services.StudentService;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class StudentServiceImpl implements StudentService{
 
-    private StudentRepository studentRepository;
+    private final StudentRepository studentRepository; // use @RequiredArgsConstructor
     
-    public StudentServiceImpl(StudentRepository studentRepository) {
+   /*  public StudentServiceImpl(StudentRepository studentRepository) {
         this.studentRepository = studentRepository;
     }
-
+ */
     @Override
     public Student saveStudent(Student student) {
        return studentRepository.save(student);

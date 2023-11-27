@@ -14,17 +14,21 @@ import org.springframework.web.bind.annotation.RestController;
 import com.thapak.demopostgresql.entities.Student;
 import com.thapak.demopostgresql.services.StudentService;
 
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
+
 
 @RestController
 @RequestMapping("/student")
 
+@RequiredArgsConstructor
 public class StudentController {
 
-    private StudentService studentService;
+    private final StudentService studentService; // using @RequiredArgsConstructor
 
-    public StudentController(StudentService studentService) {
+  /*   public StudentController(StudentService studentService) {
         this.studentService = studentService;
-    }
+    } */
 
     //create student 
     @PostMapping
